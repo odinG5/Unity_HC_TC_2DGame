@@ -27,10 +27,8 @@ public class First : MonoBehaviour
     private void Start()
     {
         print("哈囉，握的～");
-    }
-
-    private void Start()
-    {
         print("嗨～");
+    
+        
     }
 }
