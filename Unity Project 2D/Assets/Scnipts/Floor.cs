@@ -11,4 +11,12 @@ public class Floor : MonoBehaviour
     {
         ground.Translate(-speed, 0, 0);
     }
+
+    /// <summary>
+    /// 地板的移動方法。
+    /// </summary>
+    private void Move()
+    {
+        
+    }
 }
