@@ -9,7 +9,7 @@ public class Floor : MonoBehaviour
 
     private void Update()
     {
-        ground.Translate(-speed, 0, 0);
+        Move();
     }
 
     /// <summary>
@@ -17,6 +17,7 @@ public class Floor : MonoBehaviour
     /// </summary>
     private void Move()
     {
-        
+        // Time.deltaTime 一個影格的時間 (根據電腦效能不同)
+        ground.Translate(-speed * Time.deltaTime, 0, 0);
     }
 }
