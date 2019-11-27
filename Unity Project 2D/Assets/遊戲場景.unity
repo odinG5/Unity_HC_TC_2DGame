@@ -164,7 +164,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &158045328
 MonoBehaviour:
@@ -404,7 +404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed3981ba084715940876c37d1d9b173d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
+  speed: 5
   ground: {fileID: 331555099}
 --- !u!61 &331555101
 BoxCollider2D:
@@ -450,7 +450,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &339840135
 RectTransform:
   m_ObjectHideFlags: 0
@@ -736,7 +736,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -754,8 +754,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b86517534ae04714486474143c456820, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHeight: 999
-  isDead: 0
+  jumpHeight: 242
+  angle: 5
+  isDead: 1
+  goScore: {fileID: 339840134}
+  goGM: {fileID: 1504630751}
+  r2d: {fileID: 626126773}
 --- !u!1 &753021063
 GameObject:
   m_ObjectHideFlags: 0
@@ -1127,7 +1131,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1504630752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1155,7 +1159,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1504630754
 MonoBehaviour:
@@ -1549,7 +1553,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fcec7648eb6f34447813ff2e201e9baf, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f991c4674a420954eb79018620f8a756, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.7
   m_Pitch: 1
