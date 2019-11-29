@@ -1,21 +1,27 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;  // 引用介面 API
 
 public class GameManager : MonoBehaviour
 {
-    [Header("分數")]
+    [Header("目前分數")]
     public int score;
     [Header("最佳分數")]
     public int scoreHeight;
     [Header("水管群組")]
     public GameObject pipe; //GameOject 可以存場景上的物件也可以存專案內的預製物
+    [Header("結束畫面")]
+    public GameObject goFinal;
+    public Text textScore;
 
     /// <summary>
     /// 加分
     /// </summary>
     /// <param name="add">要田家分數，預設為</param>
-    private void AddScore(int add = 1)
+    public void AddScore(int add = 1)
     {
-
+        print("加分!!!");
+        score = score + add;
+        textScore.text = score.ToString();
     }
 
     /// <summary>
@@ -23,15 +29,16 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void SetHeightScore()
     {
-
+        
     }
 
     /// <summary>
     /// 遊戲結束
     /// </summary>
-    private void GaneOver()
+    public void GameOver()
     {
-
+        goFinal.SetActive(true);
+        CancelInvoke("SpawnPipe");  // 取消調用 ("方法名稱")
     }
 
     /// <summary>
