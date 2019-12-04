@@ -18,6 +18,12 @@ public class Bird : MonoBehaviour
     public AudioSource and;
     public AudioClip soundJump, soundHit, soundPass;
 
+    private void Start()
+    {
+        // 螢幕.設定解析度(寬，高，是否全螢幕)
+        Screen.SetResolution(450, 800, false);
+    }
+
     private void Update()
     {
         jump();
@@ -42,7 +48,7 @@ public class Bird : MonoBehaviour
     // 觸發開始物件：物件觸發離開時執行一次
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "通過")
+        if (collision.gameObject.name == "通過" && !isDead)
         {
             gm.AddScore();
         }
@@ -66,6 +72,10 @@ public class Bird : MonoBehaviour
 
             and.PlayOneShot(soundJump, 1.5f);               // 音源.播放一次(音效片段，音量)
         }
+        if(Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            r2d.gravityScale = 10;
+        }
 
        r2d.SetRotation(angle * r2d.velocity.y);                                // 2D 剛體.旋轉(角度)
        //print(r2d.velocity);
@@ -76,10 +86,11 @@ public class Bird : MonoBehaviour
    /// </summary>
     private void Dead()
     {
+        if (isDead) return;                     // 如果死亡 跳出
         isDead = true;
-        gm.GameOver();
-        // 靜態成員：類別.靜態成員
+        gm.GameOver();                          // 靜態成員：類別.靜態成員
         Floor.speed = 0;
+        and.PlayOneShot(soundHit, 1.5f);
     }
 
     /// <summary>

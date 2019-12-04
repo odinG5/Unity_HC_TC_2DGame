@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;  // 引用介面 API
+using UnityEngine.UI;                        // 引用 介面 API
+using UnityEngine.SceneManagement;           // 引用 場景管理 API
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour
     [Header("結束畫面")]
     public GameObject goFinal;
     public Text textScore;
+    public Text textHeight;
 
     /// <summary>
     /// 加分
@@ -22,6 +24,8 @@ public class GameManager : MonoBehaviour
         print("加分!!!");
         score = score + add;
         textScore.text = score.ToString();
+
+        SetHeightScore();
     }
 
     /// <summary>
@@ -29,7 +33,10 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void SetHeightScore()
     {
-        
+        if (score > scoreHeight)
+        {
+            PlayerPrefs.SetInt("最佳分數", score);
+        }
     }
 
     /// <summary>
@@ -59,6 +66,25 @@ public class GameManager : MonoBehaviour
         Instantiate(pipe, p, Quaternion.identity);
     }
 
+    /// <summary>
+    /// 重新遊戲
+    /// </summary>
+    public void Reset()
+    {
+        print("重新遊戲");
+        // Application.LoadLevel("遊戲場景");    // 舊版 API
+        SceneManager.LoadScene("遊戲場景");      // 新版 API
+    }
+
+    /// <summary>
+    /// 離開遊戲
+    /// </summary>
+    public void Exit()
+    {
+        print("離開遊戲");
+        Application.Quit();
+    }
+
     private void Start()
     {
         //SpawnPipe();
@@ -66,5 +92,8 @@ public class GameManager : MonoBehaviour
         // Invoke("SpawnPipe", 1.5f);
         // 延遲重複調用("方法名稱" 延遲時間，重複頻率);
         InvokeRepeating("SpawnPipe", 0, 1.8f);
+
+        scoreHeight = PlayerPrefs.GetInt("最佳分數");
+        textHeight.text = scoreHeight.ToString();
     }
 }

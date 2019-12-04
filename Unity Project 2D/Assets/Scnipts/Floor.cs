@@ -5,9 +5,15 @@ public class Floor : MonoBehaviour
     // 靜態 此類別共用
     // 隱藏
     // [Header("速度"), Range(0.1F, 100F)]
+    // 靜態欄位 再重新載入場景時不會還原為預設值
     public static float speed = 5f;
 
     public Transform ground;
+
+    private void Start()
+    {
+        speed = 3f;
+    }
 
     private void Update()
     {

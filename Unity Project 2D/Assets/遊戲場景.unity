@@ -754,7 +754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b86517534ae04714486474143c456820, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHeight: 242
+  jumpHeight: 218
   angle: 5
   isDead: 0
   goScore: {fileID: 339840134}
@@ -1178,7 +1178,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1417281356}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1504630752}
+        m_MethodName: Exit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1417281356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1249,6 +1260,7 @@ MonoBehaviour:
   pipe: {fileID: 2502819668412986412, guid: 995b8d0c2f94f7e48a2def97c0611ae1, type: 3}
   goFinal: {fileID: 1922505812}
   textScore: {fileID: 339840136}
+  textHeight: {fileID: 1788046477}
 --- !u!4 &1504630753
 Transform:
   m_ObjectHideFlags: 0
@@ -1575,7 +1587,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1801186113}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1504630752}
+        m_MethodName: Reset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1801186113
 MonoBehaviour:
   m_ObjectHideFlags: 0
